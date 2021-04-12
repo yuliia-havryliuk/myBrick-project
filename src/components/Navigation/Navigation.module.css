@@ -1,0 +1,35 @@
+.menu {
+  background-color: #fff;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo h3 {
+  padding-left: 10px;
+  color: #000;
+}
+.rightMenuItem {
+  padding-right: 30px;
+  transition: 0.1s;
+  color: #000;
+}
+.rightMenuItem:hover {
+  color: #741512;
+  transition: 0.1s;
+}
+.rightMenuItem:last-child {
+  padding-right: 0;
+}
+.activeMenuItem {
+  color: #b4211c;
+}

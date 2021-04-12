@@ -1,10 +1,9 @@
+import React from 'react';
 import './App.css';
+import MyBrickApp from './components/MyBrickApp/MyBrickApp';
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  return <MyBrickApp />;
 }
 
 export default App;
