@@ -21,7 +21,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ffebdf;
+  background-color: rgba(192, 177, 168, 0.12);
+  color: rgb(41, 40, 42);
 }
 
 a,
@@ -46,6 +47,7 @@ textarea {
   font-family: inherit;
   border: none;
   display: inline-block;
+  background-color:unset;
 }
 
 button:hover,

@@ -16,20 +16,21 @@
 }
 .logo h3 {
   padding-left: 10px;
-  color: #000;
+  color: rgba(14, 13, 15, 0.85);
+}
+.rightMenu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .rightMenuItem {
   padding-right: 30px;
   transition: 0.1s;
-  color: #000;
-}
-.rightMenuItem:hover {
-  color: #741512;
-  transition: 0.1s;
+  color: rgba(14, 13, 15, 0.85);
 }
 .rightMenuItem:last-child {
   padding-right: 0;
 }
 .activeMenuItem {
-  color: #b4211c;
+  color: rgba(243, 85, 0, 0.57);
 }
