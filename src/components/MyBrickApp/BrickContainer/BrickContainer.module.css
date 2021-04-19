@@ -1,5 +1,5 @@
 .btn{
-    background-color: #865c47;
+    background-color: #b46e4c;
     padding:20px;
     max-width: 170px;
     height: 80px;
@@ -7,4 +7,10 @@
     margin: 0 auto;
     border-radius: 10px;
     border: 1px solid #39271c;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.btn:hover{
+    background-color: #ffddcf;
+    transition: 0.1s;
 }

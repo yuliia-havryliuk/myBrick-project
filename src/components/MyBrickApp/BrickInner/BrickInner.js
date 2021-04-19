@@ -1,24 +1,36 @@
-import { connect } from 'react-redux';
-import actions from '../../../redux/actions';
 import React from 'react';
-import BrickContainer from '../BrickContainer/BrickContainer';
-import BrickActive from '../BrickActive/BrickActive';
+import { connect } from 'react-redux';
+import s from './BrickInner.module.css';
+import { IoMdClose } from 'react-icons/io';
+import { FaEye } from 'react-icons/fa';
 
-const BrickInner = ({ bricks, brickIsActive }) => {
+const BrickInner = props => {
+  console.log(props);
   return (
     <>
-      {bricks.map(({ id, activeBrick }) => (
-        <button type="button" onClick={() => brickIsActive(id)}>
-          {activeBrick ? <BrickActive brickId = {id}/> : <BrickContainer brickId = {id}/>}
-        </button>
-      ))}
+      {props.bricks.map(
+        ({ id, brickText, watchCounter, userId }) =>
+          props.match.params.id === id && (
+            <div className={s.container}>
+              <div className={s.idField}>
+                <p className={s.userId}>{userId}</p>
+                <p className={s.brickId}>{id}</p>
+              </div>
+              <p className={s.userText}>{brickText}</p>
+              <button type="button" className={s.closeBtn}>
+                <IoMdClose className={s.icon} />
+              </button>
+              <p className={s.watchCounter}>
+                <FaEye className={s.watchCounterIcon}/>
+                {watchCounter}
+              </p>
+            </div>
+          ),
+      )}
     </>
   );
 };
 const mapStateToProps = state => ({
   bricks: state,
 });
-const mapDispatchToProps = dispatch => ({
-  brickIsActive: brickId => dispatch(actions.brickIsActive(brickId)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(BrickInner);
+export default connect(mapStateToProps)(BrickInner);
