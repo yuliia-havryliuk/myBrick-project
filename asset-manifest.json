@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/myBrick-project/static/css/main.ccb55701.chunk.css",
-    "main.js": "/myBrick-project/static/js/main.4c3a2890.chunk.js",
-    "main.js.map": "/myBrick-project/static/js/main.4c3a2890.chunk.js.map",
+    "main.css": "/myBrick-project/static/css/main.2e047d8c.chunk.css",
+    "main.js": "/myBrick-project/static/js/main.633d89e4.chunk.js",
+    "main.js.map": "/myBrick-project/static/js/main.633d89e4.chunk.js.map",
     "runtime-main.js": "/myBrick-project/static/js/runtime-main.3bb2b515.js",
     "runtime-main.js.map": "/myBrick-project/static/js/runtime-main.3bb2b515.js.map",
-    "static/js/2.1ec31dd0.chunk.js": "/myBrick-project/static/js/2.1ec31dd0.chunk.js",
-    "static/js/2.1ec31dd0.chunk.js.map": "/myBrick-project/static/js/2.1ec31dd0.chunk.js.map",
+    "static/js/2.de3c1a28.chunk.js": "/myBrick-project/static/js/2.de3c1a28.chunk.js",
+    "static/js/2.de3c1a28.chunk.js.map": "/myBrick-project/static/js/2.de3c1a28.chunk.js.map",
     "index.html": "/myBrick-project/index.html",
-    "static/css/main.ccb55701.chunk.css.map": "/myBrick-project/static/css/main.ccb55701.chunk.css.map",
-    "static/js/2.1ec31dd0.chunk.js.LICENSE.txt": "/myBrick-project/static/js/2.1ec31dd0.chunk.js.LICENSE.txt",
+    "static/css/main.2e047d8c.chunk.css.map": "/myBrick-project/static/css/main.2e047d8c.chunk.css.map",
+    "static/js/2.de3c1a28.chunk.js.LICENSE.txt": "/myBrick-project/static/js/2.de3c1a28.chunk.js.LICENSE.txt",
+    "static/media/brick-sticker.97ba61e7.png": "/myBrick-project/static/media/brick-sticker.97ba61e7.png",
     "static/media/logo.2d02b22d.png": "/myBrick-project/static/media/logo.2d02b22d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3bb2b515.js",
-    "static/js/2.1ec31dd0.chunk.js",
-    "static/css/main.ccb55701.chunk.css",
-    "static/js/main.4c3a2890.chunk.js"
+    "static/js/2.de3c1a28.chunk.js",
+    "static/css/main.2e047d8c.chunk.css",
+    "static/js/main.633d89e4.chunk.js"
   ]
 }
