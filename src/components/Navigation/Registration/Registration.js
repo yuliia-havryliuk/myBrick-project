@@ -43,7 +43,7 @@ const Registration = () => {
         }}
       >
         <Form className={s.form}>
-          <h1 className={s.title}>Register</h1>
+          <h1 className={s.title}>Sign Up</h1>
           <label htmlFor="firstName">First Name</label>
           <Field
             name="firstName"
@@ -106,7 +106,7 @@ const Registration = () => {
             className={s.error}
           />
           <button type="submit" className={s.btn}>
-            Register
+            Sign Up
           </button>
         </Form>
       </Formik>

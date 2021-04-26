@@ -1,16 +1,23 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.itemContainer{
+    max-width:300px;
+}
 .btn{
     background-color: #b46e4c;
     padding:20px;
-    max-width: 170px;
     height: 80px;
-    width:100%;
-    margin: 0 auto;
     border-radius: 10px;
-    border: 1px solid #39271c;
     cursor: pointer;
     transition: 0.1s;
+    width:170px;
+    margin:1px;
 }
 .btn:hover{
     background-color: #ffddcf;
     transition: 0.1s;
+    transform: scale(1.04);
 }

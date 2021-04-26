@@ -3,6 +3,8 @@ import s from './Navigation.module.css';
 import React from 'react';
 import Search from "./Search/Search";
 import logo from './logo.png'
+import SignedInLinks from "./SignedInLinks";
+import SignedOutLinks from "./SignedOutLinks";
 
 function Navigation() {
   return (
@@ -17,8 +19,8 @@ function Navigation() {
         <div className={s.rightMenu}>
           <Search />
           <NavLink to="/instruction" className={s.rightMenuItem} activeClassName = {s.activeMenuItem}>How does it work?</NavLink>
-          <NavLink to="/registration" className={s.rightMenuItem} activeClassName = {s.activeMenuItem}>Register</NavLink>
-          <NavLink to="/login" className={s.rightMenuItem} activeClassName = {s.activeMenuItem}>Log in</NavLink>
+          <SignedOutLinks/>
+          <SignedInLinks/>
         </div>
       </div>
     </nav>
