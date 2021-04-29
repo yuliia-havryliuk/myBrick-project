@@ -5,6 +5,7 @@ import Search from "./Search/Search";
 import logo from './logo.png'
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
+import {connect} from 'react-redux'
 
 function Navigation() {
   return (
@@ -26,4 +27,5 @@ function Navigation() {
     </nav>
   );
 }
-export default Navigation;
+
+export default connect()(Navigation);
