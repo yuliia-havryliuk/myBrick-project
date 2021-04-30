@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import {Provider, useSelector} from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { ReactReduxFirebaseProvider, getFirebase, reactReduxFirebase } from 'react-redux-firebase';
+import {
+  ReactReduxFirebaseProvider,
+  getFirebase,
+  reactReduxFirebase,
+  isLoaded,
+} from 'react-redux-firebase';
 import {
   createFirestoreInstance,
   getFirestore,
@@ -14,8 +19,8 @@ import {
 } from 'redux-firestore';
 import fbConfig from './config/fbConfig';
 import firebase from 'firebase/app';
-import rootReducer from "./redux/store";
-import {composeWithDevTools} from "redux-devtools-extension";
+import rootReducer from './redux/store';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   rootReducer,
@@ -24,17 +29,31 @@ const store = createStore(
     reduxFirestore(firebase, fbConfig),
   ),
 );
+const profileSpecificProps = {
+  userProfile: "users",
+  useFirestoreForProfile: true,
+  enableRedirectHandling: false,
+  resetBeforeLogin: false,
+};
 const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: profileSpecificProps,
   dispatch: store.dispatch,
   createFirestoreInstance,
 };
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth);
+  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  return children;
+}
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
       <BrowserRouter>
-        <App />
+        <AuthIsLoaded>
+          <App />
+        </AuthIsLoaded>
       </BrowserRouter>
     </ReactReduxFirebaseProvider>
   </Provider>,

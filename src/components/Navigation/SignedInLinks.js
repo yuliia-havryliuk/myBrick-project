@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import s from './Navigation.module.css';
 import React from 'react';
-function SignedInLinks() {
+import { connect } from 'react-redux';
+import { signOut } from '../../redux/actions/authActions';
+
+function SignedInLinks({ signOut, profile }) {
   return (
     <nav className={s.menu}>
       <div className={s.rightMenu}>
@@ -12,20 +15,24 @@ function SignedInLinks() {
         >
           Create brick
         </NavLink>
-        <NavLink
-          to="/"
-          className={s.rightMenuItem}
-        >
+        <a onClick={signOut} className={s.rightMenuItem}>
           Log Out
-        </NavLink>
-        <NavLink
-          to="/"
-          className={s.rightMenuItem}
-        >
-          YH
+        </a>
+        <NavLink to="/" className={s.rightMenuItem}>
+          {profile.initials}
         </NavLink>
       </div>
     </nav>
   );
 }
-export default SignedInLinks;
+const mapStateToProps = state => {
+  return {
+    profile: state.firebase.profile,
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    signOut: () => dispatch(signOut()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);

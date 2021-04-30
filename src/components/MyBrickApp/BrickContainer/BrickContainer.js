@@ -5,8 +5,10 @@ import s from './BrickContainer.module.css';
 import { Link } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
-const BrickInner = ({ bricks }) => {
+const BrickInner = ({ bricks, auth }) => {
+  if (!auth.uid) return <Redirect to="/login" />;
   return (
     <ul className={s.container}>
       {bricks &&
@@ -31,6 +33,7 @@ const BrickInner = ({ bricks }) => {
 const mapStateToProps = state => {
   return {
     bricks: state.firestore.ordered.items /*getVisibleBricks(items, filter),*/,
+    auth: state.firebase.auth,
   };
 };
 export default compose(

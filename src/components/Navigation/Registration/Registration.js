@@ -3,8 +3,12 @@ import Layout from '../../Layout/Layout';
 import { ErrorMessage, Field, Form, Formik, useFormik } from 'formik';
 import s from './Registration.module.css';
 import * as Yup from 'yup';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signUp } from './../../../redux/actions/authActions';
 
-const Registration = () => {
+const Registration = ({ auth, signUp }) => {
+  if (auth.uid) return <Redirect to="/" />;
   return (
     <div className={s.container}>
       <Formik
@@ -36,6 +40,7 @@ const Registration = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
+          signUp(values);
           /*setTimeout(() => {
                   alert(JSON.stringify(values, null, 2));
                   setSubmitting(false);
@@ -51,11 +56,7 @@ const Registration = () => {
             className={s.field}
             placeholder="Mary"
           />
-          <ErrorMessage
-            name="firstName"
-            component="div"
-            className={s.error}
-          />
+          <ErrorMessage name="firstName" component="div" className={s.error} />
 
           <label htmlFor="lastName">Last Name</label>
           <Field
@@ -64,11 +65,7 @@ const Registration = () => {
             className={s.field}
             placeholder="Watson"
           />
-          <ErrorMessage
-            name="lastName"
-            component="div"
-            className={s.error}
-          />
+          <ErrorMessage name="lastName" component="div" className={s.error} />
 
           <label htmlFor="email">Email</label>
           <Field
@@ -86,11 +83,7 @@ const Registration = () => {
             className={s.field}
             placeholder="* * * * * * * *"
           />
-          <ErrorMessage
-            name="password"
-            component="div"
-            className={s.error}
-          />
+          <ErrorMessage name="password" component="div" className={s.error} />
           <label htmlFor="checkbox" className={s.acceptLicence}>
             <Field type="checkbox" name="checkbox" id="checkbox" />
             <p>
@@ -100,11 +93,7 @@ const Registration = () => {
               </a>
             </p>
           </label>
-          <ErrorMessage
-            name="checkbox"
-            component="div"
-            className={s.error}
-          />
+          <ErrorMessage name="checkbox" component="div" className={s.error} />
           <button type="submit" className={s.btn}>
             Sign Up
           </button>
@@ -113,4 +102,12 @@ const Registration = () => {
     </div>
   );
 };
-export default Registration;
+const mapStateToProps = state => ({
+  auth: state.firebase.auth,
+});
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: newUser => dispatch(signUp(newUser)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);

@@ -1,9 +1,9 @@
 import React from 'react';
 import bricksAction from '../../../../redux/actions';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class BrickTemplate extends React.Component {
-
   handleChange = event => {
     this.setState({
       brickText: event.target.value,
@@ -17,6 +17,7 @@ class BrickTemplate extends React.Component {
     });
   };
   render() {
+    if (!this.props.auth.uid) return <Redirect to="/login" />;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -32,9 +33,7 @@ class BrickTemplate extends React.Component {
               {' '}
             </textarea>
           </div>
-          <button type="submit">
-            Create brick
-          </button>
+          <button type="submit">Create brick</button>
         </form>
       </div>
     );
@@ -42,6 +41,7 @@ class BrickTemplate extends React.Component {
 }
 const mapStateToProps = state => ({
   brickText: state.bricks.brickText,
+  auth: state.firebase.auth,
 });
 const mapDispatchToProps = dispatch => ({
   handleChange: event =>

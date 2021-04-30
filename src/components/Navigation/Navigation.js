@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import s from './Navigation.module.css';
 import React from 'react';
-import Search from "./Search/Search";
-import logo from './logo.png'
-import SignedInLinks from "./SignedInLinks";
-import SignedOutLinks from "./SignedOutLinks";
-import {connect} from 'react-redux'
+import Search from './Search/Search';
+import logo from './logo.png';
+import SignedInLinks from './SignedInLinks';
+import SignedOutLinks from './SignedOutLinks';
+import { connect } from 'react-redux';
 
-function Navigation() {
+function Navigation({ auth }) {
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
   return (
     <nav className={s.menu}>
       <div className={s.container}>
@@ -19,13 +20,22 @@ function Navigation() {
         </NavLink>
         <div className={s.rightMenu}>
           <Search />
-          <NavLink to="/instruction" className={s.rightMenuItem} activeClassName = {s.activeMenuItem}>How does it work?</NavLink>
-          <SignedOutLinks/>
-          <SignedInLinks/>
+          <NavLink
+            to="/instruction"
+            className={s.rightMenuItem}
+            activeClassName={s.activeMenuItem}
+          >
+            How does it work?
+          </NavLink>
+          {links}
         </div>
       </div>
     </nav>
   );
 }
-
-export default connect()(Navigation);
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
+export default connect(mapStateToProps)(Navigation);
