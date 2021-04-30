@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import s from './Navigation.module.css';
+import s from './SignedInLinks.module.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { signOut } from '../../redux/actions/authActions';
+import { signOut } from '../../../redux/actions/authActions';
 
 function SignedInLinks({ signOut, profile }) {
   return (
@@ -10,7 +10,7 @@ function SignedInLinks({ signOut, profile }) {
       <div className={s.rightMenu}>
         <NavLink
           to="/createbrick"
-          className={s.rightMenuItem}
+          className={s.createBtn}
           activeClassName={s.activeMenuItem}
         >
           Create brick
@@ -18,7 +18,7 @@ function SignedInLinks({ signOut, profile }) {
         <a onClick={signOut} className={s.rightMenuItem}>
           Log Out
         </a>
-        <NavLink to="/" className={s.rightMenuItem}>
+        <NavLink to="/" className={s.initials}>
           {profile.initials}
         </NavLink>
       </div>

@@ -1,0 +1,32 @@
+.rightMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightMenuItem {
+    padding-right: 30px;
+    transition: 0.1s;
+    color: rgba(14, 13, 15, 0.85);
+}
+.createBtn{
+    background-color: #84c424;
+    margin-right: 30px;
+    transition: 0.1s;
+    color: #fff;
+    padding:10px;
+    border-radius: 5px;
+}
+.createBtn:hover{
+    background-color: #06b722;
+    color: #fff;
+}
+.initials{
+    transition: 0.1s;
+    color: #fff;
+    background-color: #f2711a;
+    border-radius: 50%;
+    padding:10px;
+}
+.initials:hover{
+    background-color: #ff4b23;
+}

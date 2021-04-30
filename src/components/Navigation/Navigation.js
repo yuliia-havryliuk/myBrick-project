@@ -3,8 +3,8 @@ import s from './Navigation.module.css';
 import React from 'react';
 import Search from './Search/Search';
 import logo from './logo.png';
-import SignedInLinks from './SignedInLinks';
-import SignedOutLinks from './SignedOutLinks';
+import SignedInLinks from './SignedInLinks/SignedInLinks';
+import SignedOutLinks from './SignedOutLinks/SignedOutLinks';
 import { connect } from 'react-redux';
 
 function Navigation({ auth }) {

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import {Provider, useSelector} from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import {
@@ -21,6 +21,7 @@ import fbConfig from './config/fbConfig';
 import firebase from 'firebase/app';
 import rootReducer from './redux/store';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { ImSun } from 'react-icons/im';
 
 const store = createStore(
   rootReducer,
@@ -30,7 +31,7 @@ const store = createStore(
   ),
 );
 const profileSpecificProps = {
-  userProfile: "users",
+  userProfile: 'users',
   useFirestoreForProfile: true,
   enableRedirectHandling: false,
   resetBeforeLogin: false,
@@ -44,7 +45,15 @@ const rrfProps = {
 
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth);
-  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  if (!isLoaded(auth))
+    return (
+      <div>
+        <div>
+          <ImSun size="32" className="icon-spin" fill="white" />
+          <p className="loader">Loading...</p>
+        </div>
+      </div>
+    );
   return children;
 }
 ReactDOM.render(

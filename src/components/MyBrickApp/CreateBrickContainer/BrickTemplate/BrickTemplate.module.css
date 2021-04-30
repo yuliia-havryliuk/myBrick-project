@@ -1,0 +1,48 @@
+.container {
+  margin-top: 40px;
+}
+.greeting{
+    padding-bottom: 10px;
+}
+.title{
+    padding-bottom: 15px;
+}
+.brickForm {
+  border-radius: 10px;
+  background-color: #fff3ea;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.brickForm textarea {
+  resize: none;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+    border-radius: 5px;
+}
+.brickForm textarea:focus {
+  outline: none;
+}
+.btn {
+    margin-top: 20px;
+    align-self: center;
+    padding: 10px;
+    background-color: #84c424;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+.btn:hover {
+    background-color: #06b722;
+    transition: 0.1s ease;
+    box-shadow: unset;
+    transform: scale(1.05);
+}

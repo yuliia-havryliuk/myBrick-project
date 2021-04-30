@@ -2,35 +2,46 @@ import React from 'react';
 import bricksAction from '../../../../redux/actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import s from './BrickTemplate.module.css';
 
 class BrickTemplate extends React.Component {
-
+  state = {
+    brickText: '',
+  };
+  handleChange = event => {
+    this.setState({ brickText: event.target.value });
+  };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createBrick(this.props.brickText);
+    this.props.createBrick(this.state.brickText);
     this.setState({
       brickText: '',
     });
-    // this.props.history.push('/')
   };
   render() {
     if (!this.props.auth.uid) return <Redirect to="/login" />;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className={s.container}>
+        <form onSubmit={this.handleSubmit} className={s.brickForm}>
           <div>
+            <h3 className={s.greeting}>
+              {' '}
+              Hi, {this.props.profile.firstName} {this.props.profile.lastName} !
+            </h3>
+            <p className={s.title}>Tell us something:</p>
             <textarea
               type="text"
               id="brickText"
-              cols="30"
-              rows="10"
-              onChange={this.props.changeBrickText}
-              value={this.props.brickText}
+              onChange={this.handleChange}
+              value={this.state.brickText}
+              maxLength="350"
             >
               {' '}
             </textarea>
           </div>
-          <button type="submit">Create brick</button>
+          <button type="submit" className={s.btn}>
+            Create brick
+          </button>
         </form>
       </div>
     );
@@ -39,6 +50,7 @@ class BrickTemplate extends React.Component {
 const mapStateToProps = state => ({
   brickText: state.bricks.brickText,
   auth: state.firebase.auth,
+  profile: state.firebase.profile,
 });
 const mapDispatchToProps = dispatch => ({
   changeBrickText: event =>
