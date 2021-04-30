@@ -21,8 +21,8 @@ const BrickInner = props => {
           userId,
           brickId,
         }) =>
-          props.match.params.id === userId && (
-            <li key={userId}>
+          props.match.params.id === brickId && (
+            <li key={brickId}>
               <div className={s.container}>
                 <div className={s.idField}>
                   <p className={s.userId}>{userId}</p>

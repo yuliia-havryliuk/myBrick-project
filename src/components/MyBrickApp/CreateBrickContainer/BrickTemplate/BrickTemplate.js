@@ -4,17 +4,14 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 class BrickTemplate extends React.Component {
-  handleChange = event => {
-    this.setState({
-      brickText: event.target.value,
-    });
-  };
+
   handleSubmit = event => {
     event.preventDefault();
     this.props.createBrick(this.props.brickText);
     this.setState({
       brickText: '',
     });
+    // this.props.history.push('/')
   };
   render() {
     if (!this.props.auth.uid) return <Redirect to="/login" />;
@@ -27,7 +24,7 @@ class BrickTemplate extends React.Component {
               id="brickText"
               cols="30"
               rows="10"
-              onChange={this.props.handleChange}
+              onChange={this.props.changeBrickText}
               value={this.props.brickText}
             >
               {' '}
@@ -44,7 +41,7 @@ const mapStateToProps = state => ({
   auth: state.firebase.auth,
 });
 const mapDispatchToProps = dispatch => ({
-  handleChange: event =>
+  changeBrickText: event =>
     dispatch(bricksAction.changeBrickText(event.target.value)),
   createBrick: brickText => dispatch(bricksAction.createBrick(brickText)),
 });

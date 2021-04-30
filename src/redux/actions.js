@@ -6,13 +6,15 @@ const shortid = require('shortid');
 const createBrick = brickText => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const userId = getState().firebase.auth.uid;
     firestore
       .collection('items')
       .add({
-        userFirstName: 'Ola',
-        userLastName: 'Miller',
+        userFirstName: profile.firstName,
+        userLastName: profile.lastName,
         watchCounter: 1,
-        userId: shortid.generate(),
+        userId: userId,
         brickId: shortid.generate(),
         createdTime: new Date(),
         brickText,
@@ -24,7 +26,8 @@ const createBrick = brickText => {
       })
       .catch(payload => {
         dispatch({
-          type: actionTypes.CREATE_BRICK_ERROR, payload
+          type: actionTypes.CREATE_BRICK_ERROR,
+          payload,
         });
       });
   };

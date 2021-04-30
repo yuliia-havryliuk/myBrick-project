@@ -7,16 +7,16 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 
-const BrickInner = ({ bricks, auth }) => {
+const BrickContainer = ({ bricks, auth }) => {
   if (!auth.uid) return <Redirect to="/login" />;
   return (
     <ul className={s.container}>
       {bricks &&
-        bricks.map(({ userId }) => (
-          <li key={userId} className={s.itemContainer}>
-            <Link to={`/bricks/${userId}`}>
+        bricks.map(({ brickId }) => (
+          <li key={brickId} className={s.itemContainer}>
+            <Link to={`/bricks/${brickId}`}>
               <button type="button" className={s.btn}>
-                <p>{userId}</p>
+                <p>{brickId}</p>
               </button>
             </Link>
           </li>
@@ -39,4 +39,4 @@ const mapStateToProps = state => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([{ collection: 'items' }]),
-)(BrickInner);
+)(BrickContainer);
