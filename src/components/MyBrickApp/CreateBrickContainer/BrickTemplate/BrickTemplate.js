@@ -39,7 +39,7 @@ class BrickTemplate extends React.Component {
               {' '}
             </textarea>
           </div>
-          <button type="submit" className={s.btn}>
+          <button type="submit" className={s.btn} disabled = {!this.state.brickText}>
             Create brick
           </button>
         </form>

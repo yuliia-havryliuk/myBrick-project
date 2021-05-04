@@ -46,3 +46,10 @@
     box-shadow: unset;
     transform: scale(1.05);
 }
+.btn:disabled {
+    background-color: gainsboro;
+    color: rgba(126, 97, 97, 0.877);
+    border: 2px solid rgba(145, 116, 116, 0.61);
+    cursor: initial;
+    transform: scale(1);
+}
