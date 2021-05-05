@@ -4,7 +4,7 @@ import Layout from '../../Layout/Layout';
 
 const Instruction = () => {
   return (
-    <div>
+    <div className={s.container}>
       <Layout>
         <h3>Instruction Page</h3>
         <p>

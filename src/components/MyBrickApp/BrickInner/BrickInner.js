@@ -7,6 +7,7 @@ import bricksAction from './../../../redux/actions';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 const BrickInner = props => {
   if (!props.auth.uid) return <Redirect to="/login" />;
@@ -20,6 +21,7 @@ const BrickInner = props => {
           watchCounter,
           userId,
           brickId,
+          createdTime,
         }) =>
           props.match.params.id === brickId && (
             <li key={brickId}>
@@ -32,6 +34,7 @@ const BrickInner = props => {
                   {userFirstName} {userLastName}
                 </p>
                 <p className={s.userText}>{brickText}</p>
+                <p className={s.createdTime}>{moment(createdTime.toDate()).calendar()}</p>
                 <p className={s.watchCounter}>
                   <FaEye className={s.watchCounterIcon} />
                   {watchCounter}

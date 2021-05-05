@@ -4,8 +4,6 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './LogIn.module.css';
 import { connect } from 'react-redux';
-import bricksAction from '../../../redux/actions';
-import fire from 'firebase';
 import { signIn } from '../../../redux/actions/authActions';
 import { Redirect } from 'react-router-dom';
 
@@ -53,17 +51,17 @@ const LogIn = ({ signIn, authError, auth }) => {
             placeholder="* * * * * * * *"
           />
           <ErrorMessage name="password" component="div" className={s.error} />
+          {authError ? <p className={s.error}>{authError}</p> : null}
           <button type="submit" className={s.btn}>
             Log In
           </button>
-          {authError ? <p>{authError}</p> : null}
         </Form>
       </Formik>
     </div>
   );
 };
 const mapStateToProps = state => ({
-  authError: state.auth.authError,
+  authError: state.auth.auth.authErrorSignIn,
   auth: state.firebase.auth,
 });
 const mapDispatchToProps = dispatch => {

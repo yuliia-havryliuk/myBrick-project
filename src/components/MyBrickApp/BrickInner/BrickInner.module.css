@@ -21,6 +21,12 @@
 .userText{
     padding:20px 0;
 }
+.createdTime{
+    align-items: center;
+    display: flex;
+    position:absolute;
+    bottom:40px;
+}
 .closeBtn{
     display: flex;
     align-self: center;

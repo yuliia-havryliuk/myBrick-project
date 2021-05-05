@@ -1,10 +1,7 @@
 import { combineReducers } from 'redux';
 import actionTypes from '../types';
 
-const items = (
-  state = [],
-  { type, payload },
-) => {
+const items = (state = [], { type, payload }) => {
   switch (type) {
     case actionTypes.CREATE_BRICK:
       console.log('created brick!');
@@ -32,10 +29,19 @@ const brickText = (state = '', { type, payload }) => {
       return state;
   }
 };
-
+const addStickerUrl = (state = '', { type, payload }) => {
+  switch (type) {
+    case actionTypes.ADD_STICKER_URL:
+      console.log(payload);
+      return payload;
+    default:
+      return state;
+  }
+};
 const bricksReducer = combineReducers({
   items,
   filter,
   brickText,
+  addStickerUrl,
 });
 export default bricksReducer;

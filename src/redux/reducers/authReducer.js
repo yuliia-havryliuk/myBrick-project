@@ -2,7 +2,8 @@ import actionTypes from '../types';
 import { combineReducers } from 'redux';
 
 const initState = {
-  authError: null,
+  authErrorSignIn: null,
+  authErrorSignUp: null,
 };
 const auth = (state = initState, action) => {
   switch (action.type) {
@@ -10,13 +11,13 @@ const auth = (state = initState, action) => {
       console.log('Login error');
       return {
         ...state,
-        authError: 'Login failed',
+        authErrorSignIn: 'Login failed',
       };
     case actionTypes.LOGIN_SUCCESS:
       console.log('Login success');
       return {
         ...state,
-        authError: null,
+        authErrorSignIn: null,
       };
     case actionTypes.SIGN_OUT_SUCCESS:
       console.log('Sign Out success');
@@ -27,13 +28,13 @@ const auth = (state = initState, action) => {
       console.log('Sign Up success');
       return {
         ...state,
-        authError: null,
+        authErrorSignUp: null,
       };
     case actionTypes.SIGN_UP_ERROR:
       console.log('Sign Up failed');
       return {
         ...state,
-        authError: action.error.message,
+        authErrorSignUp: 'Sign Up failed',
       };
     default:
       return state;

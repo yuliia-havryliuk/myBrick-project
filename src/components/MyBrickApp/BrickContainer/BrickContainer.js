@@ -7,7 +7,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 
-const BrickContainer = ({ bricks, auth }) => {
+const BrickContainer = ({ bricks, auth, stickerUrl }) => {
   if (!auth.uid) return <Redirect to="/login" />;
   return (
     <ul className={s.container}>
@@ -17,6 +17,7 @@ const BrickContainer = ({ bricks, auth }) => {
             <Link to={`/bricks/${brickId}`}>
               <button type="button" className={s.btn}>
                 <p>{brickId}</p>
+                {stickerUrl &&  <img src={stickerUrl} alt="sticker"/>}
               </button>
             </Link>
           </li>
@@ -34,6 +35,7 @@ const mapStateToProps = state => {
   return {
     bricks: state.firestore.ordered.items /*getVisibleBricks(items, filter),*/,
     auth: state.firebase.auth,
+    stickerUrl: state.bricks.stickerUrl,
   };
 };
 export default compose(

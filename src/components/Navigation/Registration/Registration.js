@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUp } from './../../../redux/actions/authActions';
 
-const Registration = ({ auth, signUp }) => {
+const Registration = ({ auth, signUp, authError }) => {
   if (auth.uid) return <Redirect to="/" />;
   return (
     <div className={s.container}>
@@ -94,6 +94,7 @@ const Registration = ({ auth, signUp }) => {
             </p>
           </label>
           <ErrorMessage name="checkbox" component="div" className={s.error} />
+          {authError ? <p className={s.error}>{authError}</p> : null}
           <button type="submit" className={s.btn}>
             Sign Up
           </button>
@@ -103,6 +104,7 @@ const Registration = ({ auth, signUp }) => {
   );
 };
 const mapStateToProps = state => ({
+  authError: state.auth.auth.authErrorSignUp,
   auth: state.firebase.auth,
 });
 const mapDispatchToProps = dispatch => {

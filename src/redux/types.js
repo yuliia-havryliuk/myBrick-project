@@ -8,6 +8,8 @@ const LOGIN_SUCCESS = 'auth/loginSuccess';
 const SIGN_OUT_SUCCESS = 'auth/signOutSuccess';
 const SIGN_UP_SUCCESS = 'auth/signUpSuccess';
 const SIGN_UP_ERROR = 'auth/signUpError';
+const STICKER_URL = 'bricks/addStickerUrl';
+const ADD_STICKER_URL = 'bricks/addStickerUrl';
 export default {
   ON_CLOSE_BRICK_INNER,
   CHANGE_FILTER,
@@ -18,5 +20,7 @@ export default {
   LOGIN_SUCCESS,
   SIGN_OUT_SUCCESS,
   SIGN_UP_SUCCESS,
-  SIGN_UP_ERROR
+  SIGN_UP_ERROR,
+  STICKER_URL,
+  ADD_STICKER_URL,
 };

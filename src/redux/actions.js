@@ -3,7 +3,7 @@ import fire from './../config/fbConfig';
 
 const shortid = require('shortid');
 
-const createBrick = brickText => {
+const createBrick = ( brickText ) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
@@ -53,6 +53,10 @@ const signIn = credentials => {
       console.log('Log in failed :(', credentials.email, err.toString());
     });
 };
+const addStickerUrl = url => ({
+  type: actionTypes.ADD_STICKER_URL,
+  payload: url,
+});
 // const signIn = credentials => {
 //   return (dispatch) => {
 //     fire
@@ -82,4 +86,10 @@ const signIn = credentials => {
 //
 //   };
 // };
-export default { createBrick, changeFilter, changeBrickText, signIn };
+export default {
+  createBrick,
+  changeFilter,
+  changeBrickText,
+  signIn,
+  addStickerUrl,
+};
