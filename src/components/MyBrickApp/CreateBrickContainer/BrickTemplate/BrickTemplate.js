@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import bricksAction from '../../../../redux/actions';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import s from './BrickTemplate.module.css';
 import EncodeBase64 from './EncodeBase64';
 
@@ -58,6 +58,7 @@ class BrickTemplate extends React.Component {
     this.setState({
       brickText: '',
     });
+    this.props.history.push('/');
   };
   render() {
     if (!this.props.auth.uid) return <Redirect to="/login" />;
@@ -108,4 +109,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(bricksAction.changeBrickText(event.target.value)),
   createBrick: brickText => dispatch(bricksAction.createBrick(brickText)),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(BrickTemplate);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(BrickTemplate),
+);
