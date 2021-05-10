@@ -3,7 +3,7 @@ import fire from './../config/fbConfig';
 
 const shortid = require('shortid');
 
-const createBrick = ( brickText ) => {
+const createBrick = ({brickText, stickerUrl}) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
@@ -18,6 +18,7 @@ const createBrick = ( brickText ) => {
         brickId: shortid.generate(),
         createdTime: new Date(),
         brickText,
+        stickerUrl,
       })
       .then(() => {
         dispatch({

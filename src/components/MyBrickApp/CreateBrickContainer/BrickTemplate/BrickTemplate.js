@@ -54,10 +54,11 @@ class BrickTemplate extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createBrick(this.state.brickText);
+    this.props.createBrick(this.state.brickText, this.props.stickerUrl);
     this.setState({
       brickText: '',
     });
+    console.log(this.props.stickerUrl);
     this.props.history.push('/');
   };
   render() {
@@ -82,15 +83,11 @@ class BrickTemplate extends React.Component {
             </textarea>
           </div>
           <EncodeBase64 />
-          {this.props.stickerUrl && (
-            <img src={this.props.stickerUrl} alt="sticker" />
-          )}
           <button
             type="submit"
             className={s.btn}
             disabled={!this.state.brickText}
           >
-            <p>{this.props.stickerUrl}</p>
             Create brick
           </button>
         </form>
@@ -102,12 +99,12 @@ const mapStateToProps = state => ({
   brickText: state.bricks.brickText,
   auth: state.firebase.auth,
   profile: state.firebase.profile,
-  stickerUrl: state.bricks.stickerUrl,
+  stickerUrl: state.bricks.items,
 });
 const mapDispatchToProps = dispatch => ({
   changeBrickText: event =>
     dispatch(bricksAction.changeBrickText(event.target.value)),
-  createBrick: brickText => dispatch(bricksAction.createBrick(brickText)),
+  createBrick: (brickText, stickerUrl) => dispatch(bricksAction.createBrick({ brickText, stickerUrl} )),
 });
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(BrickTemplate),

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import bricksAction from '../../../../redux/actions';
 
-const EncodeBase64 = ({ addStickerUrl }) => {
+const EncodeBase64 = ({ addStickerUrl, stickerUrl }) => {
   const [selectedFiles, setSelectedFile] = useState([]);
   const [fileBase64String, setFileBase64String] = useState('');
 
@@ -20,6 +20,7 @@ const EncodeBase64 = ({ addStickerUrl }) => {
       reader.onload = () => {
         let Base64 = reader.result;
         console.log(Base64);
+        console.log(stickerUrl);
         setFileBase64String(Base64);
       };
       reader.onerror = error => {
@@ -34,14 +35,14 @@ const EncodeBase64 = ({ addStickerUrl }) => {
       {fileBase64String && (
         <img src={fileBase64String} alt="sticker" width="40" height="30" />
       )}
-      <button type="button" onClick={()=>addStickerUrl(fileBase64String)}>
+      <button type="button" onClick={() => addStickerUrl(fileBase64String)}>
         Add sticker
       </button>
     </>
   );
 };
 const mapStateToProps = state => ({
-  stickerUrl: state.bricks.stickerUrl,
+  stickerUrl: state.bricks.items,
 });
 const mapDispatchToProps = dispatch => ({
   addStickerUrl: stickerUrl => dispatch(bricksAction.addStickerUrl(stickerUrl)),

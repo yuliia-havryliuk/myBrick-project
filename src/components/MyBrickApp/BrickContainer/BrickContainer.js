@@ -7,17 +7,16 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 
-const BrickContainer = ({ bricks, auth, stickerUrl }) => {
+const BrickContainer = ({ bricks, auth }) => {
   if (!auth.uid) return <Redirect to="/login" />;
   return (
     <ul className={s.container}>
       {bricks &&
-        bricks.map(({ brickId }) => (
+        bricks.map(({ brickId, stickerUrl }) => (
           <li key={brickId} className={s.itemContainer}>
             <Link to={`/bricks/${brickId}`}>
               <button type="button" className={s.btn}>
-                <p>{brickId}</p>
-                {stickerUrl &&  <img src={stickerUrl} alt="sticker"/>}
+                {stickerUrl &&  <img src={stickerUrl} alt="sticker" className={s.sticker}/>}
               </button>
             </Link>
           </li>
