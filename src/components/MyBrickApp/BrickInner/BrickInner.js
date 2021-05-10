@@ -22,6 +22,7 @@ const BrickInner = props => {
           userId,
           brickId,
           createdTime,
+          stickerUrl,
         }) =>
           props.match.params.id === brickId && (
             <li key={brickId}>
@@ -34,7 +35,12 @@ const BrickInner = props => {
                   {userFirstName} {userLastName}
                 </p>
                 <p className={s.userText}>{brickText}</p>
-                <p className={s.createdTime}>{moment(createdTime.toDate()).calendar()}</p>
+                {stickerUrl && (
+                  <img src={stickerUrl} alt="sticker" className={s.sticker} />
+                )}
+                <p className={s.createdTime}>
+                  {moment(createdTime.toDate()).calendar()}
+                </p>
                 <p className={s.watchCounter}>
                   <FaEye className={s.watchCounterIcon} />
                   {watchCounter}
@@ -49,6 +55,7 @@ const BrickInner = props => {
 const mapStateToProps = state => ({
   bricks: state.firestore.ordered.items,
   auth: state.firebase.auth,
+  stickerUrl: state.bricks.stickerUrl,
 });
 const mapDispatchToProps = dispatch => ({
   onCloseBrickInner: brickId =>
