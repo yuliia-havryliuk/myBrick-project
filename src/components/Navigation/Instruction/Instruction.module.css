@@ -1,4 +1,80 @@
+.upperContainer{
+    margin-top: 40px;
+}
 .container{
-    color: #dddddd;
-    padding-top: 40px;
+    background-color:#fff3ea;
+    padding:30px;
+    max-width: 700px;
+    width:100%;
+    border-radius: 10px;
+    margin:0 auto;
+}
+.greeting{
+    padding-bottom: 10px;
+    margin: 0 auto;
+    display:flex;
+    justify-content:center;
+}
+.title{
+    padding-bottom: 10px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+}
+.greeting span{
+    color: #ff7c19;
+    padding-right: 5px;
+}
+.btnItem{
+    margin-bottom: 10px;
+}
+.createBtn{
+    background-color: #84c424;
+    margin-right: 30px;
+    transition: 0.1s;
+    color: #fff;
+    padding:10px;
+    border-radius: 5px;
+}
+.createBtn:hover{
+    background-color: #06b722;
+    color: #fff;
+}
+
+.createBrickBtn{
+    background-color: #84c424;
+    transition: 0.1s;
+    color: #fff;
+    padding:10px;
+    border-radius: 5px;
+}
+.hi{
+    padding-right: 5px;
+}
+.addStickerBtn{
+    background-color: #b46e4c;
+    color: #fff;
+    padding:5px 10px;
+    border-radius: 3px;
+    transition: 0.1s;
+    margin-top:5px;
+}
+.btnItemSmall{
+    margin-bottom: 5px;
+}
+.btnItemTop{
+    margin:10px 0;
+}
+.list p{
+    padding-bottom: 20px;
+}
+.list li{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.ending{
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
 }

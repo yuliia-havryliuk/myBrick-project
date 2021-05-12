@@ -19,14 +19,6 @@ function Navigation({ auth }) {
           </div>
         </NavLink>
         <div className={s.rightMenu}>
-          <Search />
-          <NavLink
-            to="/instruction"
-            className={s.rightMenuItem}
-            activeClassName={s.activeMenuItem}
-          >
-            How does it work?
-          </NavLink>
           {links}
         </div>
       </div>

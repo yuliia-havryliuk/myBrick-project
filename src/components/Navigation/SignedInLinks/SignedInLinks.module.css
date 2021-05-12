@@ -30,3 +30,9 @@
 .initials:hover{
     background-color: #ff4b23;
 }
+.activeMenuItem {
+    color: rgba(243, 85, 0, 0.57);
+}
+.activeMenuItemBtn{
+    color: #fff;
+}

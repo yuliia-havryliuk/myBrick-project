@@ -3,15 +3,24 @@ import s from './SignedInLinks.module.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import { signOut } from '../../../redux/actions/authActions';
+import Search from "../Search/Search";
 
 function SignedInLinks({ signOut, profile }) {
   return (
     <nav className={s.menu}>
       <div className={s.rightMenu}>
+        <Search />
+        <NavLink
+            to="/instruction"
+            className={s.rightMenuItem}
+            activeClassName={s.activeMenuItem}
+        >
+          How does it work?
+        </NavLink>
         <NavLink
           to="/createbrick"
           className={s.createBtn}
-          activeClassName={s.activeMenuItem}
+          activeClassName={s.activeMenuItemBtn}
         >
           Create brick
         </NavLink>
