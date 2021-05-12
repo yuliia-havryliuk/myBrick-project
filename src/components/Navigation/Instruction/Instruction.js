@@ -15,7 +15,7 @@ const Instruction = ({ profile, auth }) => {
             {' '}
             {profile.firstName} {profile.lastName}{' '}
           </span>
-          !
+          :)
         </h2>
         <p className={s.title}>
           This app will help You to leave Your sign in history!
