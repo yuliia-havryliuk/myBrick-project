@@ -27,7 +27,6 @@ const LogIn = ({ signIn, authError, auth }) => {
             .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
         })}
         onSubmit={values => {
-          console.log(values);
           signIn(values);
         }}
       >

@@ -14,18 +14,15 @@ const auth = (state = initState, action) => {
         authErrorSignIn: 'Login failed',
       };
     case actionTypes.LOGIN_SUCCESS:
-      console.log('Login success');
       return {
         ...state,
         authErrorSignIn: null,
       };
     case actionTypes.SIGN_OUT_SUCCESS:
-      console.log('Sign Out success');
       return {
         ...state,
       };
     case actionTypes.SIGN_UP_SUCCESS:
-      console.log('Sign Up success');
       return {
         ...state,
         authErrorSignUp: null,

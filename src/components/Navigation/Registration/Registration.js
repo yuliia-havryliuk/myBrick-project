@@ -39,7 +39,6 @@ const Registration = ({ auth, signUp, authError }) => {
             .oneOf([true], 'You should accept the licence'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
           signUp(values);
           /*setTimeout(() => {
                   alert(JSON.stringify(values, null, 2));

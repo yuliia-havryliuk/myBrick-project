@@ -58,7 +58,6 @@ class BrickTemplate extends React.Component {
     this.setState({
       brickText: '',
     });
-    console.log(this.props.stickerUrl);
     this.props.history.push('/');
   };
   render() {

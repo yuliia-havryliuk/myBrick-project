@@ -9,10 +9,6 @@ const EncodeBase64 = ({ addStickerUrl, stickerUrl }) => {
 
   const onFileChange = event => {
     setSelectedFile(event.target.files);
-    console.log(event.target.files[0]);
-    console.log(event.target.files[0].name);
-    console.log(event.target.files[0].size);
-    console.log(event.target.files[0].type);
   };
   const encodeFileBase64 = file => {
     let reader = new FileReader();
@@ -20,8 +16,6 @@ const EncodeBase64 = ({ addStickerUrl, stickerUrl }) => {
       reader.readAsDataURL(file);
       reader.onload = () => {
         let Base64 = reader.result;
-        console.log(Base64);
-        console.log(stickerUrl);
         setFileBase64String(Base64);
       };
       reader.onerror = error => {
