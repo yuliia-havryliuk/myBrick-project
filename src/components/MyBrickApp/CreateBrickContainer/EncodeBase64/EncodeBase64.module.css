@@ -1,0 +1,19 @@
+.containcer{
+    display: flex;
+    justify-content: space-between;
+}
+.btn{
+    background-color: #b46e4c;
+    color: #fff;
+    padding:5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.1s;
+    margin-top:5px;
+}
+.btn:hover{
+    background-color: #ffddcf;
+    transition: 0.1s;
+    transform: scale(1.04);
+    color: unset;
+}

@@ -3,7 +3,7 @@ import bricksAction from '../../../../redux/actions';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import s from './BrickTemplate.module.css';
-import EncodeBase64 from './EncodeBase64';
+import EncodeBase64 from '../EncodeBase64/EncodeBase64';
 
 // const EncodeBase64 = () => {
 //   const [selectedFiles, setSelectedFile] = useState([]);

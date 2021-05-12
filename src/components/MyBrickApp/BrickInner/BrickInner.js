@@ -34,12 +34,14 @@ const BrickInner = props => {
                 <p>
                   {userFirstName} {userLastName}
                 </p>
-                <p className={s.userText}>{brickText}</p>
-                {stickerUrl && (
-                  <img src={stickerUrl} alt="sticker" className={s.sticker} />
-                )}
+                <div className={s.textField}>
+                  <p className={s.userText}>{brickText}</p>
+                  {stickerUrl && (
+                    <img src={stickerUrl} alt="sticker" className={s.sticker} />
+                  )}
+                </div>
                 <p className={s.createdTime}>
-                  {moment(createdTime.toDate()).calendar()}
+                 Posted: {moment(createdTime.toDate()).calendar()}
                 </p>
                 <p className={s.watchCounter}>
                   <FaEye className={s.watchCounterIcon} />
