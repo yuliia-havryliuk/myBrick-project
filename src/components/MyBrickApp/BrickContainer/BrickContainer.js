@@ -39,5 +39,5 @@ const mapStateToProps = state => {
 };
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: 'items' }]),
+  firestoreConnect([{ collection: 'items' , orderBy:['createdTime', 'descgit']}]),
 )(BrickContainer);
